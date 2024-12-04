@@ -1,0 +1,86 @@
+Name: Vishal Kadam
+EmpId: T1794
+
+
+/*Question 2: Dynamic Memory Allocation in Traffic Light Simulation
+You are building a simple traffic light system where each intersection has three lights (red, yellow, green) stored as an integer representing their status: `0` for off, `1` for on.
+Write a function int* initializeTrafficLight() that:
+1. Dynamically allocates an array of three integers.
+2. Initializes the first element to `1` (red light on) and the other two to `0` (yellow and green lights off).
+3. Returns a pointer to the array.
+ 
+After initializing, write a second function `void changeLight(int* light, int newState)` to:
+1. Accept the `light` array and `newState` (position of the new light to turn on, where `0`=red, `1`=yellow, `2`=green).
+2. Update the light states so only the `newState` position is on.
+ 
+Function Signatures:
+int* initializeTrafficLight();
+void changeLight(int* light, int newState);
+
+Test Cases
+1. Test Case 1  
+   - Input: Initialize lights, then call `changeLight` with `newState = 2`
+   - Expected Output: After `initializeTrafficLight`, `{1, 0, 0}`; After `changeLight`, `{0, 0, 1}` (green light on)
+2. Test Case 2
+   - Input: Initialize lights, then call `changeLight` with `newState = 1`
+   - Expected Output: After `initializeTrafficLight`, `{1, 0, 0}`; After `changeLight`, `{0, 1, 0}` (yellow light on)
+3. Test Case 3
+   - **Input**: Initialize lights, then call `changeLight` with `newState = 0`
+   - **Expected Output**: After `initializeTrafficLight`, `{1, 0, 0}`; After `changeLight`, `{1, 0, 0}` (red light remains on)
+*/
+
+
+
+
+#include<iostream>
+using namespace std;
+
+int* initializeTrafficLight();
+void changeLight(int* , int );
+
+int* initializeTrafficLight()
+{
+    int *arr=new int[3];
+    arr[0]=1;
+    arr[1]=0;
+    arr[2]=0;
+    
+    return arr;
+    
+}
+
+void changeLight(int* light, int newState)
+{
+    light[0]=0;
+    light[1]=0;
+    light[2]=0;
+    light[newState]=1;
+    
+}
+
+int main()
+{
+    int *lights=initializeTrafficLight();
+    
+    cout<<"initializeTrafficLight(red): "<<lights[0]<<endl;
+    cout<<"initializeTrafficLight(yellow): "<<lights[1]<<endl;
+    cout<<"initializeTrafficLight(green): "<<lights[2]<<endl;
+    cout<<"green light on."<<endl;
+    changeLight(lights,2);
+    cout<<"initializeTrafficLight(red): "<<lights[0]<<endl;
+    cout<<"initializeTrafficLight(yellow): "<<lights[1]<<endl;
+    cout<<"initializeTrafficLight(green): "<<lights[2]<<endl;
+    cout<<"yellow light on."<<endl;
+    changeLight(lights,1);
+    cout<<"initializeTrafficLight(red): "<<lights[0]<<endl;
+    cout<<"initializeTrafficLight(yellow): "<<lights[1]<<endl;
+    cout<<"initializeTrafficLight(green): "<<lights[2]<<endl;
+    cout<<"red light on."<<endl;
+    changeLight(lights,0);
+    cout<<"initializeTrafficLight(red): "<<lights[0]<<endl;
+    cout<<"initializeTrafficLight(yellow): "<<lights[1]<<endl;
+    cout<<"initializeTrafficLight(green): "<<lights[2]<<endl;
+    
+    
+    
+}

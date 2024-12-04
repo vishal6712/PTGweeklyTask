@@ -1,0 +1,37 @@
+//EMPID:- T1794
+//NAME:-Vishal Kadam
+/*2.Write a program to create  a class Complex to represent complex numbers and overload the + operator to add two complex numbers.*/
+#include<iostream>
+using namespace std;
+
+class complex
+{
+    public:
+    int real;
+    int imaginary;
+    
+    complex(int real=0, int imaginary=0)
+    {
+        this->real=real;
+        this->imaginary=imaginary;
+    }
+    complex operator+(complex &obj)
+    {
+        complex compx;
+        compx.real=real+obj.imaginary;
+        compx.imaginary=imaginary+obj.real;
+        return compx;
+    }
+    void display()
+    {
+        cout<<real<<" + "<<imaginary<<"i"<<endl;
+    }
+};
+int main()
+{
+    complex comp(18,7);
+    complex comp1(1,4);
+    complex comp3=comp+comp1;
+    comp3.display();
+    return 0;
+}

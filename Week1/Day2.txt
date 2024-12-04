@@ -1,0 +1,55 @@
+/*Q.1  1. From option 1 it has shown output of kmph from option 2 it has to show Mph. Write a program on the conversation of kph to mph
+This program must pass the below test cases.
+1. Does not allow negative values.
+2. Does not allow more than 300kmph/186Mph speed.*/
+
+#include<iostream>
+using namespace std;
+
+int main()
+{
+    double speed;
+    cout<<"Enter speed in km/h: ";
+    cin>>speed;
+    
+    if(speed<0)
+    {
+        cout<<"Speed is must be positive value."<<endl;
+    }
+    
+     //case 2
+    
+     else if(speed>300 && speed >(186*0.621371))
+     {
+         //cout<<300/(186*0.621371)<<endl;
+         cout<<"Speed is very high."<<endl;
+         cout<<"Speed must be: "<<300<<endl;
+     }
+     else
+     {
+         cout<<"Speed in m/h is: "<<speed*0.621371<<endl;
+     }
+     
+     double speedInMph;
+     cout<<"Enter speed in mp/h: ";
+     cin>>speedInMph;
+     
+     if(speedInMph<0)
+    {
+        cout<<"Speed is must be positive value."<<endl;
+    }
+    
+     //case 2
+    
+     else if(speedInMph>(300/0.621371) && speedInMph >186)
+     {
+         //cout<<300/(186*0.621371)<<endl;
+         cout<<"Speed is very high."<<endl;
+     }
+     else
+     {
+         cout<<"Speed in kmph: "<<speedInMph/0.621371<<endl;
+     }
+     
+     
+}
